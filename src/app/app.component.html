@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="main">
+    <h1>{{ componentTitle }}</h1>
+    <label for="addItemInput">What would you like to do today?</label>
+    <br>
+    <input 
+      #newItem
+      placeholder="Add an item"
+      (keyup.enter)="addItem(newItem.value); newItem.value = ''"
+      class="lg-text-input"
+      id="addItemInput"
+    />
+    <button class="btn-primary" (click)="addItem(newItem.value)">Add item to list</button>
+    <ul>
+      @for(item of items; track item.description){
+      <li>{{item.description}}</li>
+      }
+    </ul>
+  </div>
+
+</body>
+</html>
